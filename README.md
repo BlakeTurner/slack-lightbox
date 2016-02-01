@@ -21,4 +21,6 @@ I decided to have a bit of fun with the assignment, so I gave myself a few other
 2. Attach event handlers to the left/right arrows as well as buttons on the page for navigation.
 3. Implement the images as a doubly linked list for more efficient previous/next navigation.
 
+The code has been tested on Chrome, Safari, Firefox, and IE. It's not built to be fully responsive, but it should be fine on all desktops, laptops, and tablets.
+
 A live version can be viewed at [http://slack.blakewilliamturner.com](http://slack.blakewilliamturner.com).
