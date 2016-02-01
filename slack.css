@@ -93,3 +93,7 @@
 .lightbox .image-container a.hidden {
   visibility: hidden;
 }
+
+footer {
+  margin-top: 20px;
+}
