@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Slack Thumbnails</title>
+    <link rel="stylesheet" type="text/css" href="slack.css">
+    <script type="text/javascript" src="lightbox.js"></script>
+    <script type="text/javascript" src="image_node.js"></script>
+    <script type="text/javascript" src="gallery.js"></script>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="gallery-list">
+        <div class='active'><a href='#' data-id='51919822@N05'>Gallery 1</a></div>
+        <div><a href='#' data-id='94853989@N05'>Gallery 2</a></div>
+        <div><a href='#' data-id='13048208@N02'>Gallery 3</a></div>
+        <div><a href='#' data-id='122274109@N03'>Gallery 4</a></div>
+      </div>
+
+      <div id="gallery"></div>
+    </div>
+
+    <script>
+      (function() {
+        // Init gallery
+        var API_KEY = '588f89d36980f3ce372a24a23c31194c';
+        var GALLERY_SIZE = 12;
+        var DOM_ID = 'gallery';
+        var gallery = new Gallery(API_KEY, GALLERY_SIZE, DOM_ID);
+
+        // Render first gallery manually
+        gallery.selectAlbum('51919822@N05');
+
+        // Add event listeners for gallery list
+        var menuElements = document.getElementById('gallery-list').children;
+        for(var i = 0; i < menuElements.length; i++) {
+          menuElements[i].addEventListener('click', function(event) {
+            event.preventDefault();
+            gallery.selectAlbum(this.children[0].getAttribute('data-id'));
+            toggleActive(this);
+          });
+        }
+
+        // Toggle active class for menu items
+        var toggleActive = function(element) {
+          [].forEach.call(menuElements, function (elem) {
+            elem.removeAttribute('class', 'active');
+          });
+          element.setAttribute('class', 'active');
+        };
+      })();
+    </script>
+  </body>
+</html>
